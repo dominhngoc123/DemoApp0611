@@ -11,7 +11,8 @@
 	else
 	{
 
-		$connection = pg_connect("localhost","root","","trainingfptcompany");
+		$connection = pg_connect("host=ec2-52-202-146-43.compute-1.amazonaws.com dbname=d5cgg2s0oj04au user=nwzqcwmnhbcsio password=
+1ee79ee310078ab83bfd204cfe01b3dfa6e6d41aa4a791c81aaf383a16a111ef");
 		$username = $_POST["txtUsername"];
 		$password = $_POST["txtPassword"];
 		$sql = "SELECT * FROM tblAdmin WHERE _user = '".$username."' AND _password = '".$password."'";
