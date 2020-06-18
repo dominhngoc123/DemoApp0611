@@ -11,14 +11,12 @@
 	else
 	{
 
-		$connection = mysqli_connect("localhost","root","","trainingfptcompany");
-		$username = stripslashes($_POST["txtUsername"]);
-		$username = mysqli_real_escape_string($connection, $username);
-		$password = stripslashes($_POST["txtPassword"]);
-		$password = mysqli_real_escape_string($connection, $password);
+		$connection = pg_connect("localhost","root","","trainingfptcompany");
+		$username = $_POST["txtUsername"];
+		$password = $_POST["txtPassword"];
 		$sql = "SELECT * FROM tblAdmin WHERE _user = '".$username."' AND _password = '".$password."'";
-		$result = mysqli_query($connection, $sql) or die(mysqli_errno($connection));
-		$row = mysqli_num_rows($result);
+		$result = pg_query($connection, $sql) or die(mysqli_errno($connection));
+		$row = pg_num_rows($result);
 		if ($row == 1)
 		{
 			?>
